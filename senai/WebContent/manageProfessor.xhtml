@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gerencia Professor</title>
+	<style>
+#rodape {
+	background-color: #167A89;
+	color: #F7FBFC;
+}
+
+#bordas {
+	background-color: #F8F8FC;
+}
+</style>
+</h:head>
+<h:body>
+	<div id="bordas">
+		<b:container >
+			<b:navBar inverse="true" fixed="top"  brand="Escola" brandHref="#">
+				<b:navbarLinks>
+			<b:navbarLinks>
+				<b:navLink value="Lista de Alunos" href="aluno.xhtml"></b:navLink>
+				<b:navLink value="Gerenciar Aluno" href="manageAluno.xhtml"></b:navLink>
+				<b:navLink value="Lista de Professores" href="professor.xhtml"></b:navLink>
+				<b:navLink value="Gerenciar Professores" href="manageProfessor.xhtml"></b:navLink>
+				<b:navLink value="Lista de Empresas" href="empresa.xhtml"></b:navLink>
+				<b:navLink value="Gerenciar Empresas" href="manageEmpresa.xhtml"></b:navLink>
+			</b:navbarLinks>
+				</b:navbarLinks>
+			</b:navBar>
+			<br />
+			<hr />
+			<br />
+			<br />
+			<br />
+			<h1>
+				<h:outputText value="Gerenciar Professor" />
+			</h1>
+			<br />
+			<br />
+			<h:form>
+
+				<p:messages id="messages" showDetail="true" autoUpdate="true"
+					closable="true" />
+
+				<p:panel id="panel" header="Adicionar Professor">
+
+					<h:panelGrid columns="3" cellspacing="5" width="80%">
+						<p:outputLabel value="Name" />
+						<p:inputText id="name" value="#{professorMBean.professor.nomeProfessor}"
+							label="name" required="true">
+						</p:inputText>
+						<br />
+						<br />
+
+						<p:outputLabel value="Cadastro" />
+						<p:calendar id="cadastro" value="#{professorMBean.professor.cadastroProfessor}"
+							label="cadastro" pattern="dd/MM/yyyy" required="true">
+						</p:calendar>
+						<br />
+						<br />
+
+						<p:outputLabel value="Curso" for="curso" />
+						<h:panelGroup>
+							<p:inputText id="curso" value="#{professorMBean.professor.cursoProfessor}"
+								label="curso" required="true">
+							</p:inputText>
+							<p:message for="curso" />
+						</h:panelGroup>
+						<br />
+						<br />
+
+						<p:outputLabel value="Periodo" />
+						<p:inputText id="periodo" value="#{professorMBean.professor.periodoProfessor}"
+							label="periodo" required="true">
+						</p:inputText>
+						<br />
+						<br />
+
+						<p:outputLabel value="CPF" />
+						<p:inputMask id="cpf" value="#{ProfessorMBean.professor.cpfProfessor}"
+							label="CPF" required="false" mask="999.999.999-99"/>
+						<br />
+						<br />
+
+					</h:panelGrid>
+
+					<p:commandButton value="Salvar" update="panel"
+						action="#{professorMBean.save}" />
+				</p:panel>
+			</h:form>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+		</b:container>
+	</div>
+	<div id="rodape">
+		<br /> <br /> <br /> <br />
+		<center>
+			<h2>
+				<h:outputText value="Todos os direitos reservados" />
+			</h2>
+			<img src="images/escola.jpg" alt="Escola" width="275" />
+		</center>
+		<br /> <br /> <br />
+	</div>
+</h:body>
+</html>
